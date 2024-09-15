@@ -114,6 +114,19 @@
       "default": "America"
     },
     {
+      "tag": "Pikpak",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "direct",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
@@ -491,6 +504,10 @@
         "outbound": "OpenAI"
       },
       {
+        "rule_set": "geosite-pikpak",
+        "outbound": "Pikpak"
+      },
+      {
         "rule_set": [
           "geosite-youtube",
           "geoip-google",
@@ -787,6 +804,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/geolocation-!cn.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-pikpak",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/pikpak.srs",
         "download_detour": "direct"
       }
     ]
