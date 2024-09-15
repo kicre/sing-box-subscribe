@@ -117,7 +117,19 @@
       "tag": "Pikpak",
       "type": "selector",
       "outbounds": [
+        "direct",
         "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ]
+    },
+    {
+      "tag": "Ehentai",
+      "type": "selector",
+      "outbounds": [
         "direct",
         "TaiWan",
         "Singapore",
@@ -181,14 +193,6 @@
         "direct",
         "HongKong",
         "TaiWan"
-      ]
-    },
-    {
-      "tag": "Bahamut",
-      "type": "selector",
-      "outbounds": [
-        "TaiWan",
-        "Proxy"
       ]
     },
     {
@@ -508,6 +512,10 @@
         "outbound": "Pikpak"
       },
       {
+        "rule_set": "geosite-ehentai",
+        "outbound": "Ehentai"
+      },
+      {
         "rule_set": [
           "geosite-youtube",
           "geoip-google",
@@ -540,10 +548,6 @@
       {
         "rule_set": "geosite-bilibili",
         "outbound": "BiliBili"
-      },
-      {
-        "rule_set": "geosite-bahamut",
-        "outbound": "Bahamut"
       },
       {
         "rule_set": "geosite-spotify",
@@ -702,13 +706,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geosite-bahamut",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bahamut.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geosite-spotify",
         "type": "remote",
         "format": "binary",
@@ -811,7 +808,14 @@
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/pikpak.srs",
-        "download_detour": "direct"
+        "download_detour": "auto"
+      },
+      {
+        "tag": "geosite-ehentai",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/ehentai.srs",
+        "download_detour": "auto"
       }
     ]
   }
