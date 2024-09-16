@@ -102,18 +102,6 @@
       ]
     },
     {
-      "tag": "OpenAI",
-      "type": "selector",
-      "outbounds": [
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "America"
-    },
-    {
       "tag": "Pikpak",
       "type": "selector",
       "outbounds": [
@@ -130,13 +118,25 @@
       "tag": "Ehentai",
       "type": "selector",
       "outbounds": [
-        "direct",
         "TaiWan",
         "Singapore",
         "Japan",
         "America",
         "Others"
-      ]
+      ],
+      "default": "America"
+    },
+    {
+      "tag": "OpenAI",
+      "type": "selector",
+      "outbounds": [
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ],
+      "default": "America"
     },
     {
       "tag": "Google",
