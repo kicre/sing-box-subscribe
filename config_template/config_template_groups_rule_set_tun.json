@@ -475,7 +475,7 @@
         "outbound": "Proxy"
       },
       {
-        "source_ip_cidr": [
+        "ip_cidr": [
           "149.104.27.157",
           "154.91.255.63"
         ],
