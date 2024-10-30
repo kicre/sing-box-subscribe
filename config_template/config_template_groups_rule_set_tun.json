@@ -102,32 +102,21 @@
       ]
     },
     {
-      "tag": "Pikpak",
+      "tag": "Global",
       "type": "selector",
       "outbounds": [
-        "direct",
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
         "Japan",
         "America",
-        "Others"
+        "Others",
+        "direct"
       ]
     },
     {
-      "tag": "Ehentai",
-      "type": "selector",
-      "outbounds": [
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "America"
-    },
-    {
-      "tag": "OpenAI",
+      "tag": "Foreign",
       "type": "selector",
       "outbounds": [
         "TaiWan",
@@ -142,42 +131,7 @@
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag": "Telegram",
-      "type": "selector",
-      "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag": "Twitter",
-      "type": "selector",
-      "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag": "Facebook",
-      "type": "selector",
-      "outbounds": [
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -199,6 +153,7 @@
       "tag": "Spotify",
       "type": "selector",
       "outbounds": [
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -212,6 +167,7 @@
       "tag": "TikTok",
       "type": "selector",
       "outbounds": [
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -221,34 +177,11 @@
       "default": "Japan"
     },
     {
-      "tag": "Netflix",
-      "type": "selector",
-      "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
-      "tag": "Disney+",
-      "type": "selector",
-      "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ]
-    },
-    {
       "tag": "Apple",
       "type": "selector",
       "outbounds": [
         "direct",
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -262,6 +195,7 @@
       "type": "selector",
       "outbounds": [
         "direct",
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -275,6 +209,7 @@
       "type": "selector",
       "outbounds": [
         "direct",
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
@@ -287,25 +222,13 @@
       "tag": "Streaming",
       "type": "selector",
       "outbounds": [
+        "Proxy",
         "HongKong",
         "TaiWan",
         "Singapore",
         "Japan",
         "America",
         "Others"
-      ]
-    },
-    {
-      "tag": "Global",
-      "type": "selector",
-      "outbounds": [
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others",
-        "direct"
       ]
     },
     {
@@ -504,16 +427,12 @@
         "outbound": "China"
       },
       {
-        "rule_set": "geosite-openai",
-        "outbound": "OpenAI"
-      },
-      {
-        "rule_set": "geosite-pikpak",
-        "outbound": "Pikpak"
-      },
-      {
-        "rule_set": "geosite-ehentai",
-        "outbound": "Ehentai"
+        "rule_set": [
+          "geosite-openai",
+          "geosite-pikpak",
+          "geosite-ehentai"
+        ],
+        "outbound": "Foreign"
       },
       {
         "rule_set": [
@@ -529,21 +448,21 @@
           "geoip-telegram",
           "geosite-telegram"
         ],
-        "outbound": "Telegram"
+        "outbound": "Global"
       },
       {
         "rule_set": [
           "geoip-twitter",
           "geosite-twitter"
         ],
-        "outbound": "Twitter"
+        "outbound": "Global"
       },
       {
         "rule_set": [
           "geoip-facebook",
           "geosite-facebook"
         ],
-        "outbound": "Facebook"
+        "outbound": "Global"
       },
       {
         "rule_set": "geosite-bilibili",
@@ -556,17 +475,6 @@
       {
         "rule_set": "geosite-tiktok",
         "outbound": "TikTok"
-      },
-      {
-        "rule_set": [
-          "geoip-netflix",
-          "geosite-netflix"
-        ],
-        "outbound": "Netflix"
-      },
-      {
-        "rule_set": "geosite-disney",
-        "outbound": "Disney+"
       },
       {
         "rule_set": [
@@ -590,7 +498,10 @@
       {
         "rule_set": [
           "geosite-hbo",
-          "geosite-primevideo"
+          "geosite-primevideo",
+          "geoip-netflix",
+          "geosite-netflix",
+          "geosite-disney"
         ],
         "outbound": "Streaming"
       },
@@ -814,8 +725,8 @@
         "tag": "geosite-ehentai",
         "type": "remote",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/ehentai.srs",
-        "download_detour": "direct"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/ehentai.srs",
+        "download_detour": "auto"
       }
     ]
   }
