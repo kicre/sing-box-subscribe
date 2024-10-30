@@ -353,7 +353,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "网站|地址|剩余|过期|时间|有效|traffic|expire"
+            "网站|地址|剩余|过期|时间|有效|[Tt]raffic|[Ee]xpire"
           ]
         }
       ],
@@ -521,8 +521,8 @@
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "direct"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "download_detour": "auto"
       },
       {
         "tag": "geoip-cn",
