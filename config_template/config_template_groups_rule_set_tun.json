@@ -9,7 +9,7 @@
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "",
-      "external_ui_download_detour": "auto",
+      "external_ui_download_detour": "direct",
       "default_mode": "rule"
     },
     "cache_file": {
