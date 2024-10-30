@@ -134,6 +134,21 @@
       "default": "America"
     },
     {
+      "tag": "Pikpak",
+      "type": "selector",
+      "outbounds": [
+        "direct",
+        "Proxy",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others"
+      ],
+      "default": "direct"
+    },
+    {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
@@ -154,33 +169,6 @@
         "HongKong",
         "TaiWan"
       ]
-    },
-    {
-      "tag": "Spotify",
-      "type": "selector",
-      "outbounds": [
-        "Proxy",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "America"
-    },
-    {
-      "tag": "TikTok",
-      "type": "selector",
-      "outbounds": [
-        "Proxy",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America"
-      ],
-      "default": "Japan"
     },
     {
       "tag": "Apple",
@@ -435,10 +423,15 @@
       {
         "rule_set": [
           "geosite-openai",
-          "geosite-pikpak",
           "geosite-ehentai"
         ],
         "outbound": "Foreign"
+      },
+      {
+        "rule_set": [
+          "geosite-pikpak"
+        ],
+        "outbound": "Pikpak"
       },
       {
         "rule_set": [
@@ -476,11 +469,11 @@
       },
       {
         "rule_set": "geosite-spotify",
-        "outbound": "Spotify"
+        "outbound": "Streaming"
       },
       {
         "rule_set": "geosite-tiktok",
-        "outbound": "TikTok"
+        "outbound": "Streaming"
       },
       {
         "rule_set": [
