@@ -22,6 +22,11 @@
       {
         "tag": "proxyDns",
         "address": "tls://8.8.8.8",
+        "detour": "Proxy"
+      },
+      {
+        "tag": "ecsDns",
+        "address": "tls://8.8.8.8",
         "detour": "Proxy",
         "client_subnet": "202.207.208.6/24"
       },
@@ -62,17 +67,21 @@
         "server": "proxyDns"
       }
     ],
-    "final": "proxyDns",
+    "final": "ecsDns",
     "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
       "type": "tun",
-      "inet4_address": "172.19.0.1/30",
+      "address": [
+        "172.19.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
       "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
       "sniff": true,
+      "sniff_override_destination": true,
       "endpoint_independent_nat": false,
       "stack": "system",
       "platform": {
@@ -88,6 +97,7 @@
       "listen": "127.0.0.1",
       "listen_port": 2080,
       "sniff": true,
+      "sniff_override_destination": true,
       "users": [],
       "set_system_proxy": true
     }
@@ -98,15 +108,9 @@
       "type": "selector",
       "outbounds": [
         "auto",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others",
         "{all}"
       ],
-      "default": "HongKong"
+      "default": "auto"
     },
     {
       "tag": "Global",
@@ -327,7 +331,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美"
+            "🇭🇰|HK|hk|香港|香|🇹🇼|TW|tw|台湾|台|🇸🇬|SG|sg|新加坡|狮|🇯🇵|JP|jp|日本|日|🇺🇸|US|us|美国|美|[Tt]raffic|[Ee]xpire"
           ]
         }
       ]
@@ -366,6 +370,7 @@
   "route": {
     "auto_detect_interface": true,
     "final": "Proxy",
+    "override_android_vpn": true,
     "rules": [
       {
         "type": "logical",
