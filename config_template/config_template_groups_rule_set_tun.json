@@ -63,7 +63,7 @@
       }
     ],
     "final": "proxyDns",
-    "strategy": "prefer_ipv6"
+    "strategy": "prefer_ipv4"
   },
   "inbounds": [
     {
