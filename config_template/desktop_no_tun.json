@@ -77,8 +77,7 @@
       "listen_port": 2080,
       "sniff": true,
       "sniff_override_destination": true,
-      "users": [],
-      "set_system_proxy": true
+      "users": []
     }
   ],
   "outbounds": [
