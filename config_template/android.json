@@ -241,14 +241,6 @@
       ]
     },
     {
-      "tag": "AdBlock",
-      "type": "selector",
-      "outbounds": [
-        "block",
-        "direct"
-      ]
-    },
-    {
       "tag": "HongKong",
       "type": "selector",
       "outbounds": [
@@ -394,8 +386,20 @@
         "action": "hijack-dns"
       },
       {
-        "rule_set": "geosite-category-ads-all",
+        "rule_set": [
+          "geosite-category-ads-all",
+          "geosite-awavenue-ads"
+        ],
+        "clash_mode": "direct",
         "action": "reject"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all",
+          "geosite-awavenue-ads"
+        ],
+        "clash_mode": "global",
+        "outbound": "Proxy"
       },
       {
         "clash_mode": "direct",
@@ -407,6 +411,9 @@
       },
       {
         "ip_cidr": [
+          "127.0.0.1",
+          "192.168.*",
+          "10.*",
           "149.104.27.157",
           "154.91.255.63"
         ],
