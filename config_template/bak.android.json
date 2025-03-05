@@ -115,6 +115,20 @@
       "default": "auto"
     },
     {
+      "tag": "Global",
+      "type": "selector",
+      "outbounds": [
+        "Proxy",
+        "HongKong",
+        "TaiWan",
+        "Singapore",
+        "Japan",
+        "America",
+        "Others",
+        "direct"
+      ]
+    },
+    {
       "tag": "Foreign",
       "type": "selector",
       "outbounds": [
@@ -155,19 +169,13 @@
       ]
     },
     {
-      "tag": "Telegram",
+      "tag": "BiliBili",
       "type": "selector",
       "outbounds": [
         "direct",
-        "Proxy",
         "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others"
-      ],
-      "default": "Proxy"
+        "TaiWan"
+      ]
     },
     {
       "tag": "Apple",
@@ -209,15 +217,6 @@
         "Japan",
         "America",
         "Others"
-      ]
-    },
-    {
-      "tag": "BiliBili",
-      "type": "selector",
-      "outbounds": [
-        "direct",
-        "HongKong",
-        "TaiWan"
       ]
     },
     {
@@ -350,20 +349,6 @@
       "tolerance": 50
     },
     {
-      "tag": "Global",
-      "type": "selector",
-      "outbounds": [
-        "Proxy",
-        "HongKong",
-        "TaiWan",
-        "Singapore",
-        "Japan",
-        "America",
-        "Others",
-        "direct"
-      ]
-    },
-    {
       "type": "direct",
       "tag": "direct"
     }
@@ -452,28 +437,23 @@
       },
       {
         "rule_set": [
-          "geoip-twitter",
-          "geosite-twitter",
-          "geosite-geolocation-!cn",
-          "geoip-facebook",
-          "geosite-facebook",
-          "geosite-spotify",
-          "geosite-tiktok"
+          "geoip-cn",
+          "geosite-cn"
         ],
-        "outbound": "Proxy"
+        "outbound": "China"
       },
       {
         "rule_set": [
           "geosite-openai",
           "geosite-ehentai"
         ],
-        "outbound": "foreign"
+        "outbound": "Foreign"
       },
       {
         "rule_set": [
           "geosite-pikpak"
         ],
-        "outbound": "pikpak"
+        "outbound": "Pikpak"
       },
       {
         "rule_set": [
@@ -482,14 +462,59 @@
           "geosite-google",
           "geosite-github"
         ],
-        "outbound": "google"
+        "outbound": "Google"
       },
       {
         "rule_set": [
           "geoip-telegram",
           "geosite-telegram"
         ],
-        "outbound": "telegram"
+        "outbound": "Global"
+      },
+      {
+        "rule_set": [
+          "geoip-twitter",
+          "geosite-twitter"
+        ],
+        "outbound": "Global"
+      },
+      {
+        "rule_set": [
+          "geoip-facebook",
+          "geosite-facebook"
+        ],
+        "outbound": "Global"
+      },
+      {
+        "rule_set": "geosite-bilibili",
+        "outbound": "BiliBili"
+      },
+      {
+        "rule_set": "geosite-spotify",
+        "outbound": "Streaming"
+      },
+      {
+        "rule_set": "geosite-tiktok",
+        "outbound": "Streaming"
+      },
+      {
+        "rule_set": [
+          "geoip-apple",
+          "geosite-apple",
+          "geosite-amazon"
+        ],
+        "outbound": "Apple"
+      },
+      {
+        "rule_set": "geosite-microsoft",
+        "outbound": "Microsoft"
+      },
+      {
+        "rule_set": [
+          "geosite-category-games",
+          "geosite-dmm"
+        ],
+        "outbound": "Games"
       },
       {
         "rule_set": [
@@ -499,37 +524,11 @@
           "geosite-netflix",
           "geosite-disney"
         ],
-        "outbound": "streaming"
+        "outbound": "Streaming"
       },
       {
-        "rule_set": "geosite-bilibili",
-        "outbound": "BiliBili"
-      },
-      {
-        "rule_set": [
-          "geoip-apple",
-          "geosite-apple",
-          "geosite-amazon"
-        ],
-        "outbound": "apple"
-      },
-      {
-        "rule_set": "geosite-microsoft",
-        "outbound": "microsoft"
-      },
-      {
-        "rule_set": [
-          "geosite-category-games",
-          "geosite-dmm"
-        ],
-        "outbound": "games"
-      },
-      {
-        "rule_set": [
-          "geoip-cn",
-          "geosite-cn"
-        ],
-        "outbound": "China"
+        "rule_set": "geosite-geolocation-!cn",
+        "outbound": "Global"
       }
     ],
     "rule_set": [
