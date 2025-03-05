@@ -444,6 +444,10 @@
           ".cn",
           ".kicre.top"
         ],
+        "protocol": [
+          "ssh",
+          "bittorrent"
+        ],
         "outbound": "direct"
       },
       {
