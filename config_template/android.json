@@ -99,9 +99,6 @@
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "users": []
     }
   ],
   "outbounds": [
@@ -401,6 +398,10 @@
         "action": "hijack-dns"
       },
       {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
         "rule_set": [
           "geosite-category-ads-all",
           "geosite-awavenue-ads"
@@ -425,34 +426,38 @@
         "outbound": "Proxy"
       },
       {
-        "ip_cidr": [
-          "127.0.0.1",
-          "192.168.0.0/16",
-          "10.0.0.0/24",
-          "149.104.27.157",
-          "154.91.255.63"
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "ip_cidr": [
+              "149.104.27.157",
+              "154.91.255.63"
+            ]
+          },
+          {
+            "domain": [
+              "clash.razord.top",
+              "yacd.metacubex.one",
+              "yacd.haishan.me",
+              "d.metacubex.one",
+              "kicre.top",
+              "wttr.in"
+            ]
+          },
+          {
+            "domain_suffix": [
+              ".kicre.top"
+            ]
+          },
+          {
+            "protocol": [
+              "ssh",
+              "bittorrent"
+            ]
+          }
         ],
-        "domain": [
-          "clash.razord.top",
-          "yacd.metacubex.one",
-          "yacd.haishan.me",
-          "d.metacubex.one",
-          "kicre.top",
-          "wttr.in"
-        ],
-        "domain_suffix": [
-          ".cn",
-          ".kicre.top"
-        ],
-        "protocol": [
-          "ssh",
-          "bittorrent"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
+        "outbound": "China"
       },
       {
         "rule_set": [
@@ -460,9 +465,7 @@
           "geosite-twitter",
           "geosite-geolocation-!cn",
           "geoip-facebook",
-          "geosite-facebook",
-          "geosite-spotify",
-          "geosite-tiktok"
+          "geosite-facebook"
         ],
         "outbound": "Proxy"
       },
@@ -501,7 +504,9 @@
           "geosite-primevideo",
           "geoip-netflix",
           "geosite-netflix",
-          "geosite-disney"
+          "geosite-disney",
+          "geosite-spotify",
+          "geosite-tiktok"
         ],
         "outbound": "Streaming"
       },
